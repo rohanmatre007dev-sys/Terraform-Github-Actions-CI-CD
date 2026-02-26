@@ -9,7 +9,7 @@ module "alb" {
   vpc_id  = module.vpc.vpc_id
   subnets = module.vpc.public_subnets
 
-  security_groups = [module.vpc.default_security_group_id]
+  security_groups = [aws_security_group.alb_sg.id]
 
   target_groups = [
     {
